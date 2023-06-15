@@ -21,3 +21,14 @@ body{
     color: black;
 }
 
+.error {
+    margin-top: 5px;
+    font-size: smaller;
+    color: red;
+}
+.response {
+    margin-top: 5px;
+    font-size: smaller;
+    color: green;
+}
+
