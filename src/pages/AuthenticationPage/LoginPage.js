@@ -2,9 +2,12 @@ import "./AuthenticationPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function LoginPage() {
   const navigate = useNavigate();
+  const user_id = Cookies.get("user_id");
+  console.log(user_id);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +16,7 @@ function LoginPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(
+      const response = await axios.post(
         "https://houseoffashion-weerawarnagayan.b4a.run/users/login",
         {
           email,
@@ -23,6 +26,8 @@ function LoginPage() {
           withCredentials: true,
         }
       );
+      const { userId } = response.data;
+      Cookies.set("user_id", userId);
       navigate("/");
     } catch (error) {
       setErrorMessage(error.response.data);
@@ -56,9 +61,7 @@ function LoginPage() {
             required
           />
         </div>
-        {
-          errorMessage ? (<p className="error">{errorMessage}</p>) : null
-        }
+        {errorMessage ? <p className="error">{errorMessage}</p> : null}
         <button className="auth-button" type="submit">
           Sign In
         </button>

@@ -2,9 +2,12 @@ import "./AuthenticationPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function RegisterPage() {
   const navigate = useNavigate();
+  const user_id = Cookies.get("user_id");
+  console.log(user_id);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,12 +19,15 @@ function RegisterPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("https://houseoffashion-weerawarnagayan.b4a.run/users/register", {
-        email,
-        firstName,
-        lastName,
-        password,
-      });
+      await axios.post(
+        "https://houseoffashion-weerawarnagayan.b4a.run/users/register",
+        {
+          email,
+          firstName,
+          lastName,
+          password,
+        }
+      );
       setErrorMessage(false);
       setResponse(true);
       setTimeout(() => {
@@ -80,7 +86,9 @@ function RegisterPage() {
           />
         </div>
         {response ? (
-          <p className="response">Account successfully created! redirecting to login page...</p>
+          <p className="response">
+            Account successfully created! redirecting to login page...
+          </p>
         ) : null}
         {errorMessage ? <p className="error">{errorMessage}</p> : null}
         <button className="auth-button" type="submit">
