@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
 
-import { menuVariants } from "./NavBarVariants";
+import { menuVariants, listVariant } from "./NavBarVariants";
 import { fetchUserData, resetAuth, selectUser } from "../../slices/userSlice";
 
 function NavBar() {
@@ -19,16 +19,18 @@ function NavBar() {
   const data = useSelector(selectUser).data[0];
   const user_id = Cookies.get("user_id");
 
-  const handleLogOutClick = async(event) => {
+  const handleLogOutClick = async (event) => {
     event.preventDefault();
-    try{
-      await axios.get("https://houseoffashion-weerawarnagayan.b4a.run/users/logout");
+    try {
+      await axios.get(
+        "https://houseoffashion-weerawarnagayan.b4a.run/users/logout"
+      );
       Cookies.remove("user_id");
       dispatch(resetAuth());
-    }catch(error){
+    } catch (error) {
       throw error;
     }
-  }
+  };
 
   const handleHamburgerClick = () => {
     const menu = document.querySelector(".nav-links");
@@ -72,20 +74,21 @@ function NavBar() {
           variants={menuVariants}
           initial={"closed"}
           animate={open ? "open" : "closed"}
-          transition={{ stiffness: 100, duration: 0.4 }}
         >
           {!user_id ? (
             <Link className="link" to={"/login"}>
-              <li>Log in</li>
+              <motion.li variants={listVariant}>Log in</motion.li>
             </Link>
           ) : (
-            <Link className="link" to={`/profile/${user_id}`}><li>Profile - {data?.firstname}</li></Link>
+            <Link className="link" to={`/profile/${user_id}`}>
+              <motion.li variants={listVariant}>Profile - {data?.firstname}</motion.li>
+            </Link>
           )}
-          <li>New arrivals</li>
-          <li>Mens</li>
-          <li>Womens</li>
-          <li>Kids</li>
-          {!user_id ? ( null ) : ( <li onClick={handleLogOutClick}>Log Out</li>)}
+          <motion.li variants={listVariant}>New arrivals</motion.li>
+          <motion.li variants={listVariant}>Mens</motion.li>
+          <motion.li variants={listVariant}>Womens</motion.li>
+          <motion.li variants={listVariant}>Kids</motion.li>
+          {!user_id ? null : <motion.li variants={listVariant} onClick={handleLogOutClick}>Log Out</motion.li>}
         </motion.ul>
       </nav>
       <Outlet />
