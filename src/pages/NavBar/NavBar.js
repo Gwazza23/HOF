@@ -3,6 +3,10 @@ import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+import { menuVariants } from "./NavBarVariants";
 
 function NavBar() {
   const [open, setOpen] = useState(false);
@@ -38,18 +42,26 @@ function NavBar() {
             )}
           </div>
           <div className="nav-logo">
-            <h1>{isMobile? "H . O . F" : "House Of Fashion"}</h1>
+            <h1>{isMobile ? "H . O . F" : "House Of Fashion"}</h1>
           </div>
         </div>
-        <ul className={`nav-links ${open ? "open" : ""}`}>
-          <li>Log in</li>
+        <motion.ul
+          className={`nav-links ${open ? "open" : ""}`}
+          variants={menuVariants}
+          initial={"closed"}
+          animate={open ? "open" : "closed"}
+          transition={{ stiffness: 100, duration: 0.4 }}
+        >
+          <Link className="link" to={"/login"}>
+            <li>Log in</li>
+          </Link>
           <li>New arrivals</li>
           <li>Mens</li>
           <li>Womens</li>
           <li>Kids</li>
-        </ul>
+        </motion.ul>
       </nav>
-      {!open ? <Outlet /> : ""}
+      <Outlet />
     </>
   );
 }

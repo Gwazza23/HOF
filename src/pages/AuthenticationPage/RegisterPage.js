@@ -39,7 +39,7 @@ function RegisterPage() {
     <div className="auth-div-container">
       <form className="auth-div" onSubmit={handleSubmit}>
         <div className="auth-title">
-         <Link className="link-title" to={'/'}> <h1>House Of Fashion</h1> </Link>
+         <Link className="link" to={'/'}> <h1>House Of Fashion</h1> </Link>
           <h2>Sign Up</h2>
         </div>
         <div className="auth-label">
@@ -93,7 +93,7 @@ function RegisterPage() {
         </button>
         <p className="auth-option">
           Already have an account?{" "}
-          <Link className="link" to={"/login"}>
+          <Link className="link underline" to={"/login"}>
             Sign in
           </Link>
         </p>

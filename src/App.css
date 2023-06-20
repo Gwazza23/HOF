@@ -15,14 +15,15 @@ p,input,label,button,li {
     box-sizing: border-box;
 }
 body{
-    background-color: #f9f9f9;
+    background-color: #f6f6f6;
 }
 
-.link, .link-title{
+.link {
     color: black;
-}
-.link-title {
     text-decoration: none;
+}
+.underline {
+    text-decoration: underline;
 }
 
 

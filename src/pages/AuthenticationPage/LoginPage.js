@@ -36,7 +36,7 @@ function LoginPage() {
     <div className="auth-div-container">
       <form className="auth-div" onSubmit={handleSubmit}>
         <div className="auth-title">
-          <Link className="link-title" to='/'><h1>House Of Fashion</h1></Link>
+          <Link className="link" to='/'><h1>House Of Fashion</h1></Link>
           <h2>Sign In</h2>
         </div>
         <div className="auth-label">
@@ -65,7 +65,7 @@ function LoginPage() {
         </button>
         <p className="auth-option">
           Don't have an account?{" "}
-          <Link className="link" to={"/register"}>
+          <Link className="link underline" to={"/register"}>
             Sign Up
           </Link>
         </p>
