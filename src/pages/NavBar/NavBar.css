@@ -17,12 +17,12 @@ nav {
 }
 
 .hamburger {
-    position: absolute;
-  width: 15vw;
+  cursor: pointer;
+  position: absolute;
+  width: fit-content;
+  margin-left: 3.75vw;
   padding: 1.5%;
   font-size: 2rem;
-  text-align: center;
-  height: fit-content;
 }
 
 .nav-links {
@@ -37,6 +37,8 @@ nav {
 }
 
 .nav-links li {
-  margin: 2.5% 5%;
+  cursor: pointer;
+  margin: 2% 5%;
   padding: 1%;
+  width: fit-content;
 }

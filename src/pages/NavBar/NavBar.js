@@ -70,7 +70,7 @@ function NavBar() {
           </div>
         </div>
         <motion.ul
-          className={`nav-links ${open ? "open" : ""}`}
+          className={`nav-links`}
           variants={menuVariants}
           initial={"closed"}
           animate={open ? "open" : "closed"}
