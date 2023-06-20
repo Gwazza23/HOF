@@ -1,11 +1,9 @@
-
-import { Link } from 'react-router-dom'
+import Hero from '../Hero/Hero'
 
 function HomePage() {
   return (
     <div>
-        <Link to={'/register'}>Register</Link> 
-        HOME    
+        <Hero />   
     </div>
   )
 }
