@@ -77,18 +77,22 @@ function NavBar() {
         >
           {!user_id ? (
             <Link className="link" to={"/login"}>
-              <motion.li variants={listVariant}>Log in</motion.li>
+              <motion.li className="bold" variants={listVariant}>Log in</motion.li>
             </Link>
           ) : (
             <Link className="link" to={`/profile/${user_id}`}>
-              <motion.li variants={listVariant}>Profile - {data?.firstname}</motion.li>
+              <motion.li className="bold" variants={listVariant}>Profile - {data?.firstname}</motion.li>
             </Link>
           )}
-          <motion.li variants={listVariant}>New arrivals</motion.li>
-          <motion.li variants={listVariant}>Mens</motion.li>
-          <motion.li variants={listVariant}>Womens</motion.li>
-          <motion.li variants={listVariant}>Kids</motion.li>
-          {!user_id ? null : <motion.li variants={listVariant} onClick={handleLogOutClick}>Log Out</motion.li>}
+          <motion.li variants={listVariant}>T-SHIRTS</motion.li>
+          <motion.li variants={listVariant}>JEANS</motion.li>
+          <motion.li variants={listVariant}>CAPS</motion.li>
+          <motion.li variants={listVariant}>JACKETS</motion.li>
+          <motion.li variants={listVariant}>TROUSERS</motion.li>
+          <motion.li variants={listVariant}>SWEATSHIRTS</motion.li>
+          <motion.li variants={listVariant}>HOODIES</motion.li>
+          <motion.li variants={listVariant}>SHORTS</motion.li>
+          {!user_id ? null : <motion.li className="bold" variants={listVariant} onClick={handleLogOutClick}>Log Out</motion.li>}
         </motion.ul>
       </nav>
       <Outlet />
