@@ -6,8 +6,6 @@ import Cookies from "js-cookie";
 
 function LoginPage() {
   const navigate = useNavigate();
-  const user_id = Cookies.get("user_id");
-  console.log(user_id);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,7 +36,7 @@ function LoginPage() {
     <div className="auth-div-container">
       <form className="auth-div" onSubmit={handleSubmit}>
         <div className="auth-title">
-          <h1>House Of Fashion</h1>
+          <Link className="link-title" to='/'><h1>House Of Fashion</h1></Link>
           <h2>Sign In</h2>
         </div>
         <div className="auth-label">

@@ -2,12 +2,9 @@ import "./AuthenticationPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
 
 function RegisterPage() {
   const navigate = useNavigate();
-  const user_id = Cookies.get("user_id");
-  console.log(user_id);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +39,7 @@ function RegisterPage() {
     <div className="auth-div-container">
       <form className="auth-div" onSubmit={handleSubmit}>
         <div className="auth-title">
-          <h1>House Of Fashion</h1>
+         <Link className="link-title" to={'/'}> <h1>House Of Fashion</h1> </Link>
           <h2>Sign Up</h2>
         </div>
         <div className="auth-label">

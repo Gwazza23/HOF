@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400&family=Noto+Serif&display=swap');
 
 h1,h2{
     font-family: 'Noto Serif';
 }
 
-p,input,label,button {
+p,input,label,button,li {
     font-family: 'Inter';
+    font-weight: 200;
 }
 
 * {
@@ -17,9 +18,13 @@ body{
     background-color: #f9f9f9;
 }
 
-.link{
+.link, .link-title{
     color: black;
 }
+.link-title {
+    text-decoration: none;
+}
+
 
 .error {
     margin-top: 5px;
