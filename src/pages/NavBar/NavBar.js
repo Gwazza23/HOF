@@ -40,7 +40,7 @@ function NavBar() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 430);
+      setIsMobile(window.innerWidth <= 574);
     };
 
     handleResize();
