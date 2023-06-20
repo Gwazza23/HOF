@@ -1,16 +1,22 @@
 import "./NavBar.css";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import { menuVariants } from "./NavBarVariants";
+import { fetchUserData, selectUser } from "../../slices/userSlice";
 
 function NavBar() {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const data = useSelector(selectUser).data[0];
+  const user_id = Cookies.get("user_id");
 
   const handleHamburgerClick = () => {
     const menu = document.querySelector(".nav-links");
@@ -29,6 +35,10 @@ function NavBar() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    dispatch(fetchUserData(user_id));
+  }, [user_id, dispatch]);
 
   return (
     <>
@@ -52,9 +62,13 @@ function NavBar() {
           animate={open ? "open" : "closed"}
           transition={{ stiffness: 100, duration: 0.4 }}
         >
-          <Link className="link" to={"/login"}>
-            <li>Log in</li>
-          </Link>
+          {!user_id ? (
+            <Link className="link" to={"/login"}>
+              <li>Log in</li>
+            </Link>
+          ) : (
+            <Link className="link" to={`/profile/${user_id}`}><li>Profile - {data?.firstname}</li></Link>
+          )}
           <li>New arrivals</li>
           <li>Mens</li>
           <li>Womens</li>

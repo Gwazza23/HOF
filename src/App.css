@@ -7,6 +7,7 @@ h1,h2{
 p,input,label,button,li {
     font-family: 'Inter';
     font-weight: 200;
+    color: black;
 }
 
 * {
