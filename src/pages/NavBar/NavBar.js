@@ -7,9 +7,10 @@ import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import axios from "axios";
 
 import { menuVariants } from "./NavBarVariants";
-import { fetchUserData, selectUser } from "../../slices/userSlice";
+import { fetchUserData, resetAuth, selectUser } from "../../slices/userSlice";
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -17,6 +18,17 @@ function NavBar() {
   const [isMobile, setIsMobile] = useState(false);
   const data = useSelector(selectUser).data[0];
   const user_id = Cookies.get("user_id");
+
+  const handleLogOutClick = async(event) => {
+    event.preventDefault();
+    try{
+      await axios.get("https://houseoffashion-weerawarnagayan.b4a.run/users/logout");
+      Cookies.remove("user_id");
+      dispatch(resetAuth());
+    }catch(error){
+      throw error;
+    }
+  }
 
   const handleHamburgerClick = () => {
     const menu = document.querySelector(".nav-links");
@@ -73,6 +85,7 @@ function NavBar() {
           <li>Mens</li>
           <li>Womens</li>
           <li>Kids</li>
+          {!user_id ? ( null ) : ( <li onClick={handleLogOutClick}>Log Out</li>)}
         </motion.ul>
       </nav>
       <Outlet />
