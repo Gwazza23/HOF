@@ -34,8 +34,10 @@ function NavBar() {
 
   const handleHamburgerClick = () => {
     const menu = document.querySelector(".nav-links");
+    const body = document.querySelector("body");
     menu.classList.toggle("open");
     setOpen(!open);
+    body.classList.toggle("scroll-lock")
   };
 
   useEffect(() => {

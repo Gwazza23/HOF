@@ -42,3 +42,7 @@ nav {
   padding: 1%;
   width: fit-content;
 }
+
+.scroll-lock {
+  overflow: hidden;
+}

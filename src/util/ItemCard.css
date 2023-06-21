@@ -1,0 +1,29 @@
+.item-card-div {
+  margin: 1vh;
+  display: flex;
+  flex-direction: column;
+  width: 55vw;
+  margin: 5vh auto;
+}
+
+.item-card-div img {
+  width: auto;
+  height: auto;
+}
+
+.item-card-div p {
+  margin-left: auto;
+}
+
+.buy-now {
+    position: relative;
+    bottom: 3vh;
+    right: 1vw;
+    background-color: lightgreen;
+}
+
+@media only screen and (min-width: 430px) {
+  .item-card-div {
+    width: 30vw;
+  }
+}
