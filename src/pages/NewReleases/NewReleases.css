@@ -5,7 +5,7 @@
 .new-releases-div h2 {
     position: relative;
   text-align: center;
-  top:5vh;
+  top:3vh;
 }
 
 @media only screen and (min-width: 430px) {
