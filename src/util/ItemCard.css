@@ -17,6 +17,7 @@
 
 .buy-now {
     position: relative;
+    opacity: 0;
     bottom: 3vh;
     right: 1vw;
     background-color: lightgreen;

@@ -17,7 +17,7 @@ function RegisterPage() {
     event.preventDefault();
     try {
       await axios.post(
-        "https://houseoffashion-weerawarnagayan.b4a.run/users/register",
+        "https://houseoffashion-weerawarnagayan.4a.run/users/register",
         {
           email,
           firstName,

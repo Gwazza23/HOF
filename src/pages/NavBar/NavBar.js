@@ -68,7 +68,7 @@ function NavBar() {
             )}
           </div>
           <div className="nav-logo">
-            <h1>{isMobile ? "H . O . F" : "House Of Fashion"}</h1>
+            <Link className="link" to={'/'}><h1>{isMobile ? "H . O . F" : "House Of Fashion"}</h1></Link>
           </div>
         </div>
         <motion.ul

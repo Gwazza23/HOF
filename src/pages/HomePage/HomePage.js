@@ -1,15 +1,22 @@
-import ExploreMore from '../ExploreMore/ExploreMore'
-import Hero from '../Hero/Hero'
-import NewReleases from '../NewReleases/NewReleases'
+import ExploreMore from "../ExploreMore/ExploreMore";
+import Hero from "../Hero/Hero";
+import NewReleases from "../NewReleases/NewReleases";
+import { motion } from "framer-motion";
+import { wrapperVariants } from "../../util/transitionVariants";
 
 function HomePage() {
   return (
-    <div>
-        <Hero /> 
-        <NewReleases />
-        <ExploreMore />
-    </div>
-  )
+    <motion.div
+      variants={wrapperVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
+      <Hero />
+      <NewReleases />
+      <ExploreMore />
+    </motion.div>
+  );
 }
 
-export default HomePage
+export default HomePage;
