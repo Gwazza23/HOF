@@ -23,6 +23,10 @@ export const menuVariants = {
       duration: 0.5
     }
   },
+  exit: {
+    clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+    transition: { duration: .4 }
+  }
 };
 
 export const listVariant = {
@@ -36,5 +40,5 @@ export const listVariant = {
   closed: {
     x:-20,
     opacity: 0,
-  }
+  },
 }

@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400&family=Noto+Serif&display=swap');
 
-h1,h2{
+h1,h2, h3{
     font-family: 'Noto Serif';
 }
 
-p,input,label,button,li {
+p,input,label,button,li, h4 {
     font-family: 'Inter';
     font-weight: 200;
     color: black;

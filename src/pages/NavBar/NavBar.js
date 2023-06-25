@@ -5,19 +5,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
 
 import { menuVariants, listVariant } from "./NavBarVariants";
 import { fetchUserData, resetAuth, selectUser } from "../../slices/userSlice";
+import { fetchAllCategories, selectProducts } from "../../slices/productsSlice";
 
 function NavBar() {
   const dispatch = useDispatch();
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const data = useSelector(selectUser).data[0];
   const user_id = Cookies.get("user_id");
+  const categories = useSelector(selectProducts).categoriesData;
+  console.log(open)
 
   const handleLogOutClick = async (event) => {
     event.preventDefault();
@@ -37,7 +41,7 @@ function NavBar() {
     const body = document.querySelector("body");
     menu.classList.toggle("open");
     setOpen(!open);
-    body.classList.toggle("scroll-lock")
+    body.classList.toggle("scroll-lock");
   };
 
   useEffect(() => {
@@ -54,7 +58,14 @@ function NavBar() {
 
   useEffect(() => {
     dispatch(fetchUserData(user_id));
+    dispatch(fetchAllCategories());
   }, [user_id, dispatch]);
+
+  useEffect(() => {
+    setOpen(false);
+    document.querySelector("body").classList.remove("scroll-lock");
+  }, [location.pathname])
+
 
   return (
     <>
@@ -68,7 +79,9 @@ function NavBar() {
             )}
           </div>
           <div className="nav-logo">
-            <Link className="link" to={'/'}><h1>{isMobile ? "H . O . F" : "House Of Fashion"}</h1></Link>
+            <Link className="link" to={"/"}>
+              <h1>{isMobile ? "H . O . F" : "House Of Fashion"}</h1>
+            </Link>
           </div>
         </div>
         <motion.ul
@@ -79,22 +92,36 @@ function NavBar() {
         >
           {!user_id ? (
             <Link className="link" to={"/login"}>
-              <motion.li className="bold" variants={listVariant}>Log in</motion.li>
+              <motion.li className="bold" variants={listVariant}>
+                Log in
+              </motion.li>
             </Link>
           ) : (
             <Link className="link" to={`/profile/${user_id}`}>
-              <motion.li className="bold" variants={listVariant}>Profile - {data?.firstname}</motion.li>
+              <motion.li className="bold" variants={listVariant}>
+                Profile - {data?.firstname}
+              </motion.li>
             </Link>
           )}
-          <motion.li variants={listVariant}>T-SHIRTS</motion.li>
-          <motion.li variants={listVariant}>JEANS</motion.li>
-          <motion.li variants={listVariant}>CAPS</motion.li>
-          <motion.li variants={listVariant}>JACKETS</motion.li>
-          <motion.li variants={listVariant}>TROUSERS</motion.li>
-          <motion.li variants={listVariant}>SWEATSHIRTS</motion.li>
-          <motion.li variants={listVariant}>HOODIES</motion.li>
-          <motion.li variants={listVariant}>SHORTS</motion.li>
-          {!user_id ? null : <motion.li className="bold" variants={listVariant} onClick={handleLogOutClick}>Log Out</motion.li>}
+          {categories &&
+            categories.map((category) => {
+              return (
+                <Link key={category.id} className="link" to={`/category/${category.id}`}>
+                  <motion.li variants={listVariant}>
+                    {category.category_name}
+                  </motion.li>
+                </Link>
+              );
+            })}
+          {!user_id ? null : (
+            <motion.li
+              className="bold"
+              variants={listVariant}
+              onClick={handleLogOutClick}
+            >
+              Log Out
+            </motion.li>
+          )}
         </motion.ul>
       </nav>
       <Outlet />

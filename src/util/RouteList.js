@@ -12,7 +12,7 @@ import CategoryPage from "../pages/CategoryPage/CategoryPage";
 
 function RouteList() {
   const location = useLocation();
-  
+
   return (
     <AnimatePresence initial={false} mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -20,7 +20,7 @@ function RouteList() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<NavBar />}>
           <Route index element={<HomePage />} />
-          <Route path="category/:id" element={<CategoryPage />}/>
+          <Route path="category/:id" element={<CategoryPage />} />
         </Route>
       </Routes>
     </AnimatePresence>

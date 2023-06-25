@@ -1,6 +1,33 @@
-.test{
-    border: 1px solid black;
+.category-page-container {
     position: relative;
     top: 10vh;
-    height: 200vh;
+}
+
+.category-page-div {
+    background-color: white;
+    position: relative;
+    top: 1vh;
+    margin: 0vh 1vh 2vh 1vh;
+}
+
+.category-page-header {
+    position: relative;
+    top: 1vh;
+    margin: 0vh 1vh 1vh 1vh;
+    text-align: center;
+    font-size: 3vh;
+}
+
+@media only screen and  ( min-width: 430px ) {
+    .category-page-items-div{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .category-page-div .item-card-div {
+        width: 25vw;
+        margin: 1vh;
+    }
 }
