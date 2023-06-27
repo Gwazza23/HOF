@@ -25,7 +25,7 @@ function ItemPage() {
     }
     try {
       const response = await axios.post(
-        `https://houseoffashion-weerawarnagayan.b4a.run/cart/`,
+        `https://house-of-fashion.onrender.com/cart/`,
         {
           product_id: id,
           quantity,

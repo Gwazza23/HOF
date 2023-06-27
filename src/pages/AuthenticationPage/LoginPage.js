@@ -15,7 +15,7 @@ function LoginPage() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://houseoffashion-weerawarnagayan.b4a.run/users/login",
+        "https://house-of-fashion.onrender.com/users/login",
         {
           email,
           password,

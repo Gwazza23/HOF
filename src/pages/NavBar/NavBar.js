@@ -26,7 +26,7 @@ function NavBar() {
     event.preventDefault();
     try {
       await axios.get(
-        "https://houseoffashion-weerawarnagayan.b4a.run/users/logout"
+        "https://house-of-fashion.onrender.com/users/logout"
       );
       Cookies.remove("user_id");
       dispatch(resetAuth());
