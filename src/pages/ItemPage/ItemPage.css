@@ -1,0 +1,104 @@
+.item-page-container {
+  position: relative;
+  padding: 1vh;
+  top: 10vh;
+}
+
+.item-page-div {
+  position: relative;
+  top: 1vh;
+  margin: 0vh 1vh 1vh 1vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-page-header {
+  text-align: center;
+  padding: 1vh;
+}
+
+.item-page-image {
+  width: fit-content;
+  margin: 1vh;
+}
+.item-page-image img {
+  width: 65vw;
+  height: auto;
+}
+
+.item-page-description {
+  margin: 1vh;
+}
+.item-page-description-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-page-description p {
+  height: 0vh;
+  overflow: hidden;
+}
+
+.item-page-description p.open {
+  height: auto;
+  overflow: visible;
+}
+
+.arrow {
+  font-size: 1.5rem;
+}
+
+.item-page-price {
+  align-self: flex-start;
+  margin: 1vh;
+}
+
+.item-page-buy-out {
+  padding: 2vh;
+  border: 1px solid black;
+  margin: 1vh;
+  background: white;
+}
+
+.item-page-buy-out input {
+  width: 50px;
+  margin: 1vh;
+}
+
+.item-page-buy-out button {
+  margin: 1vh;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  padding: 1vh;
+}
+
+.wide-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (min-width: 430px) {
+  .item-page-div {
+    display: block;
+  }
+  .wide-view-container {
+    flex-direction: row;
+  }
+  .item-page-description {
+    align-self: flex-start;
+  }
+
+  .item-page-image img {
+    height: 60vh;
+    width: auto;
+  }
+
+  .item-page-description p {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

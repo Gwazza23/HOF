@@ -21,7 +21,6 @@ function NavBar() {
   const data = useSelector(selectUser).data[0];
   const user_id = Cookies.get("user_id");
   const categories = useSelector(selectProducts).categoriesData;
-  console.log(open)
 
   const handleLogOutClick = async (event) => {
     event.preventDefault();

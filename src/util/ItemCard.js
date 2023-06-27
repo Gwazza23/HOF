@@ -2,9 +2,15 @@ import "./ItemCard.css";
 import { motion } from "framer-motion";
 import { cardVariant, pVariants, stockVariant } from "./ItemCardVariants";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ItemCard({ item }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const navigate = useNavigate();
+
+  const handleItemClick = () => {
+    navigate(`/item/${item.id}`)
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,6 +29,7 @@ function ItemCard({ item }) {
       variants={cardVariant}
       initial="initial"
       whileHover="hover"
+      onClick={handleItemClick}
       className="item-card-div"
     >
       <img src={item.img_url} alt={item.name} />
