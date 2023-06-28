@@ -15,7 +15,7 @@ function LoginPage() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://house-of-fashion.onrender.com/users/login",
+        "http://localhost:3000/users/login",
         {
           email,
           password,
@@ -24,11 +24,11 @@ function LoginPage() {
           withCredentials: true,
         }
       );
-      const { userId } = response.data;
+      const { userId } = response?.data;
       Cookies.set("user_id", userId);
       navigate("/");
     } catch (error) {
-      setErrorMessage(error.response.data);
+      setErrorMessage(error.response?.data);
     }
   };
 

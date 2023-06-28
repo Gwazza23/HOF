@@ -25,7 +25,7 @@ function ItemPage() {
     }
     try {
       const response = await axios.post(
-        `https://house-of-fashion.onrender.com/cart/`,
+        `http://localhost:3000/cart/`,
         {
           product_id: id,
           quantity,

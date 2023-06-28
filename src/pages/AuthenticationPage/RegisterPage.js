@@ -17,7 +17,7 @@ function RegisterPage() {
     event.preventDefault();
     try {
       await axios.post(
-        "https://house-of-fashion.onrender.com/users/register",
+        "http://localhost:3000/users/register",
         {
           email,
           firstName,

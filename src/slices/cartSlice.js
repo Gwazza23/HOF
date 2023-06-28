@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const fetchUserCart = createAsyncThunk("cart/fetchUserCart", async (id) => {
-    const response = await axios.get(`https://house-of-fashion.onrender.com/cart/${id}`);
+    const response = await axios.get(`http://localhost:3000/cart/${id}`);
     return response.data;
 })
 

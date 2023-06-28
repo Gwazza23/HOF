@@ -4,7 +4,7 @@ import axios from "axios";
 const fetchAllProducts = createAsyncThunk(
   "products/fetchAllProducts",
   async () => {
-    const response = await axios.get(`https://houseoffashion-weerawarnagayan.b4a.run/products`);
+    const response = await axios.get(`http://localhost:3000/products`);
     return response.data;
   }
 );
@@ -13,7 +13,7 @@ const fetchSingleProduct = createAsyncThunk(
   "products/fetchSingleProduct",
   async (id) => {
     const response = await axios.get(
-      `https://house-of-fashion.onrender.com/products/item/${id}`
+      `http://localhost:3000/products/item/${id}`
     );
     return response.data;
   }
@@ -22,14 +22,14 @@ const fetchSingleProduct = createAsyncThunk(
 const fetchAllCategories = createAsyncThunk(
   "products/fetchAllCategories",
   async (thunkAPI) => {
-    const response = await axios.get(`https://house-of-fashion.onrender.com/products/category`);
+    const response = await axios.get(`http://localhost:3000/products/category`);
     return response.data;
   }
 );
 
 const fetchCategory = createAsyncThunk("prodcuts/fetchCategory", async (id) => {
   const response = await axios.get(
-    `https://house-of-fashion.onrender.com/products/category/${id}`
+    `http://localhost:3000/products/category/${id}`
   );
   return response.data;
 });

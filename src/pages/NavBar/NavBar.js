@@ -12,6 +12,7 @@ import axios from "axios";
 import { menuVariants, listVariant } from "./NavBarVariants";
 import { fetchUserData, resetAuth, selectUser } from "../../slices/userSlice";
 import { fetchAllCategories, selectProducts } from "../../slices/productsSlice";
+import { fetchUserCart, selectCart } from "../../slices/cartSlice";
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -21,13 +22,12 @@ function NavBar() {
   const data = useSelector(selectUser).data[0];
   const user_id = Cookies.get("user_id");
   const categories = useSelector(selectProducts).categoriesData;
+  const cart = useSelector(selectCart).cartData;
 
   const handleLogOutClick = async (event) => {
     event.preventDefault();
     try {
-      await axios.get(
-        "https://house-of-fashion.onrender.com/users/logout"
-      );
+      await axios.get("http://localhost:3000/users/logout");
       Cookies.remove("user_id");
       dispatch(resetAuth());
     } catch (error) {
@@ -58,13 +58,13 @@ function NavBar() {
   useEffect(() => {
     dispatch(fetchUserData(user_id));
     dispatch(fetchAllCategories());
+    dispatch(fetchUserCart(user_id));
   }, [user_id, dispatch]);
 
   useEffect(() => {
     setOpen(false);
     document.querySelector("body").classList.remove("scroll-lock");
-  }, [location.pathname])
-
+  }, [location.pathname]);
 
   return (
     <>
@@ -96,16 +96,27 @@ function NavBar() {
               </motion.li>
             </Link>
           ) : (
-            <Link className="link" to={`/profile/${user_id}`}>
-              <motion.li className="bold" variants={listVariant}>
-                Profile - {data?.firstname}
-              </motion.li>
-            </Link>
+            <>
+              <Link className="link" to={`/profile/${user_id}`}>
+                <motion.li className="bold" variants={listVariant}>
+                  Profile - {data?.firstname}
+                </motion.li>
+              </Link>
+              <Link className="link" to={`/cart/${user_id}`}>
+                <motion.li className="bold" variants={listVariant}>
+                  Cart ({cart.length})
+                </motion.li>
+              </Link>
+            </>
           )}
           {categories &&
             categories.map((category) => {
               return (
-                <Link key={category.id} className="link" to={`/category/${category.id}`}>
+                <Link
+                  key={category.id}
+                  className="link"
+                  to={`/category/${category.id}`}
+                >
                   <motion.li variants={listVariant}>
                     {category.category_name}
                   </motion.li>
