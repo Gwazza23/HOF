@@ -5,7 +5,7 @@ const fetchUserData = createAsyncThunk(
   "users/fetchUserData",
   async (user_id) => {
     const response = await axios.get(
-      `http://localhost:3000/users/profile/${user_id}`
+      `https://house-of-fashion.onrender.com/users/profile/${user_id}`
     );
     return response.data;
   }

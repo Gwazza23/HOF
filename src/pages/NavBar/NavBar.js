@@ -27,7 +27,7 @@ function NavBar() {
   const handleLogOutClick = async (event) => {
     event.preventDefault();
     try {
-      await axios.get("http://localhost:3000/users/logout");
+      await axios.get("https://house-of-fashion.onrender.com/users/logout");
       Cookies.remove("user_id");
       dispatch(resetAuth());
     } catch (error) {
@@ -59,7 +59,7 @@ function NavBar() {
     dispatch(fetchUserData(user_id));
     dispatch(fetchAllCategories());
     dispatch(fetchUserCart(user_id));
-  }, [user_id, dispatch]);
+  }, [user_id, dispatch, cart]);
 
   useEffect(() => {
     setOpen(false);

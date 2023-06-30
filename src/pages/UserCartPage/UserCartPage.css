@@ -1,0 +1,148 @@
+.user-cart-page-container {
+  position: relative;
+  top: 10vh;
+}
+
+.user-cart-page-div {
+  border: 1px solid black;
+  position: relative;
+  top: 1vh;
+  margin: 0vh 1vh 1vh 1vh;
+  background-color: white;
+}
+.user-cart-page-div-header {
+  padding: 1vh;
+  border: 1px solid black;
+  margin: 1vh;
+  display: flex;
+}
+.user-cart-page-div-header span {
+  width: 23vw;
+}
+
+.header-item,
+.header-quantity {
+  font-weight: bold;
+  text-align: center;
+}
+
+.header-item {
+  width: 45vw;
+}
+.header-quantity {
+  width: 20vw;
+}
+
+.user-cart-page-item-div {
+  border: 1px solid black;
+  display: flex;
+  margin: 1vh;
+  padding: 0.5vh;
+}
+.user-cart-page-item-div img {
+  width: 22.5vw;
+  height: auto;
+}
+
+.user-cart-page-item-div h4 {
+  width: 45vw;
+}
+.user-cart-page-item-div p {
+  width: 20vw;
+}
+
+.remove-item {
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.6%;
+  margin: auto 0px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-weight: bold;
+}
+.user-cart-page-item-quantity-div {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.user-cart-page-item-quantity-div p {
+  width: fit-content;
+}
+.user-cart-page-item-quantity-div span {
+  cursor: pointer;
+}
+
+.user-cart-page-div h4,
+.user-cart-page-item-quantity-div,
+.remove-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-total {
+  width: fit-content;
+  padding: 1vh;
+  border: 1px solid black;
+  margin: 2.5vh 1vh 2.5vh 2.5vh;
+  margin-left: auto;
+}
+
+.quantity-button {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  width: fit-content;
+  padding: 1vw;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.check-out-button-div {
+  display: flex;
+  justify-content: center;
+}
+
+.check-out-button {
+    cursor: pointer;;
+  background-color: lightgreen;
+  color: black;
+  padding: 1vw;
+  border: 1px solid black;
+  margin: 1vh;
+}
+
+.user-cart-page-footer {
+  display: flex;
+  align-items: center;
+}
+.item-update {
+  color: green;
+  margin-left: 1vw;
+}
+
+@media only screen and (min-width: 425px) {
+  .quantity-button {
+    bottom: 1vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .quantity-button {
+    bottom: 4vh;
+  }
+  .user-cart-page-div img {
+    width: 15.5vw;
+  }
+  .user-cart-page-div-header span {
+    width: 15vw;
+  }
+}

@@ -25,7 +25,7 @@ function ItemPage() {
     }
     try {
       const response = await axios.post(
-        `http://localhost:3000/cart/`,
+        `https://house-of-fashion.onrender.com/cart/`,
         {
           product_id: id,
           quantity,
@@ -35,7 +35,6 @@ function ItemPage() {
           withCredentials: true,
         }
       );
-      console.log(response);
       setErrorMessage(false);
       setSuccessMessage(response.data);
     } catch (error) {

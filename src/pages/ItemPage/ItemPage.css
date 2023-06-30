@@ -68,6 +68,7 @@
 }
 
 .item-page-buy-out button {
+  cursor: pointer;
   margin: 1vh;
   background-color: white;
   color: black;
