@@ -11,6 +11,7 @@ import NavBar from "../pages/NavBar/NavBar";
 import CategoryPage from "../pages/CategoryPage/CategoryPage";
 import ItemPage from "../pages/ItemPage/ItemPage";
 import UserCartPage from "../pages/UserCartPage/UserCartPage";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
 
 function RouteList() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function RouteList() {
           <Route path="category/:id" element={<CategoryPage />} />
           <Route path="item/:id" element={<ItemPage />} />
           <Route path="cart/:id" element={<UserCartPage />} />
+          <Route path="profile/:id" element={<ProfilePage />} />
         </Route>
       </Routes>
     </AnimatePresence>

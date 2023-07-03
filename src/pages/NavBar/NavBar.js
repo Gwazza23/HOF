@@ -59,7 +59,7 @@ function NavBar() {
     dispatch(fetchUserData(user_id));
     dispatch(fetchAllCategories());
     dispatch(fetchUserCart(user_id));
-  }, [user_id, dispatch, cart]);
+  }, [user_id, dispatch]);
 
   useEffect(() => {
     setOpen(false);
@@ -97,7 +97,11 @@ function NavBar() {
             </Link>
           ) : (
             <>
-              <Link className="link" to={`/profile/${user_id}`}>
+              <Link
+                className="link"
+                to={`/profile/${user_id}`}
+                state={{ data }}
+              >
                 <motion.li className="bold" variants={listVariant}>
                   Profile - {data?.firstname}
                 </motion.li>

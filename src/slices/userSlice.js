@@ -1,11 +1,14 @@
-import {  createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const fetchUserData = createAsyncThunk(
   "users/fetchUserData",
   async (user_id) => {
     const response = await axios.get(
-      `https://house-of-fashion.onrender.com/users/profile/${user_id}`
+      `https://house-of-fashion.onrender.com/users/profile/${user_id}`,
+      {
+        withCredentials: true,
+      }
     );
     return response.data;
   }
@@ -28,7 +31,7 @@ const userDataSlice = createSlice({
       })
       .addCase(fetchUserData.fulfilled, (state, action) => {
         state.status = "completed";
-        state.auth = 'authorized';
+        state.auth = "authorized";
         state.data = action.payload;
       })
       .addCase(fetchUserData.rejected, (state, action) => {
@@ -37,7 +40,7 @@ const userDataSlice = createSlice({
       })
       .addCase(resetAuth, (state) => {
         state.auth = null;
-      })
+      });
   },
 });
 
@@ -45,4 +48,4 @@ export { fetchUserData, resetAuth };
 
 export default userDataSlice.reducer;
 
-export const selectUser = (state) => state.users
+export const selectUser = (state) => state.users;
