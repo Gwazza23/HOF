@@ -6,11 +6,13 @@ import { motion } from "framer-motion";
 import { wrapperVariants } from "../../util/transitionVariants";
 import { fetchCategory, selectProducts } from "../../slices/productsSlice";
 import ItemCard from '../../util/ItemCard'
+import LoadingPage from '../../util/LoadingPage'
 
 function CategoryPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
+  const status = useSelector(selectProducts).status;
   const data = useSelector(selectProducts).categoryData;
 
   useEffect(() => {
@@ -20,6 +22,11 @@ function CategoryPage() {
   useEffect(() => {
     dispatch(fetchCategory(id));
   }, [dispatch, id]);
+
+
+  if(status === 'idle' || status === 'Loading') {
+    return <LoadingPage />
+  }
 
   return (
     <div className="category-page-container">
