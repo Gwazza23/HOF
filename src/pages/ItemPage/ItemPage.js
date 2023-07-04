@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchSingleProduct, selectProducts } from "../../slices/productsSlice";
 import { motion } from "framer-motion";
+import LoadingPage from "../../util/LoadingPage";
 import axios from "axios";
 
 function ItemPage() {
@@ -11,10 +12,11 @@ function ItemPage() {
   const [quantity, setQuantity] = useState(0);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const dispatch = useDispatch();
   const { id } = useParams();
+  const status = useSelector(selectProducts).status;
   const data = useSelector(selectProducts).itemData[0];
   const price = parseFloat(data?.price.replace("$", ""));
 
@@ -64,6 +66,10 @@ function ItemPage() {
   useEffect(() => {
     setOpen(windowWidth >= 430);
   }, [windowWidth]);
+
+  if (status === "idle" || status === "Loading") {
+    return <LoadingPage />
+  }
 
   return (
     data && (
