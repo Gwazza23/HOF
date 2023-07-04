@@ -1,7 +1,7 @@
 .hero-div {
     display: flex;
     height: 90vh;
-    background-image: url('../../../public/images/hero-img-mobile.jpg');
+    background-image: url('../../../public/images/hero-img-mobile.webp');
     background-repeat: no-repeat;
     background-size:cover;
     background-position-y:center;
@@ -44,6 +44,6 @@
 
 @media only screen and (min-width: 770px) {
     .hero-div {
-        background-image: url('../../../public/images/hero-img-desktop.jpg');
+        background-image: url('../../../public/images/hero-img-desktop.webp');
     }
 }

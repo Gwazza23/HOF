@@ -36,7 +36,9 @@ function LoginPage() {
     <div className="auth-div-container">
       <form className="auth-div" onSubmit={handleSubmit}>
         <div className="auth-title">
-          <Link className="link" to='/'><h1>House Of Fashion</h1></Link>
+          <Link className="link" to="/">
+            <h1>House Of Fashion</h1>
+          </Link>
           <h2>Sign In</h2>
         </div>
         <div className="auth-label">

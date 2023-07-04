@@ -75,6 +75,7 @@ function ItemPage() {
             </div>
             <div className="wide-view-container">
               <div className="item-page-image">
+                <link rel="preload" as="image" href={data.img_url} />
                 <img src={data.img_url} alt="Item" />
               </div>
               <div className="item-page-description">

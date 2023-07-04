@@ -62,6 +62,7 @@ function CartItem({ item, onQuantityUpdate }) {
 
   return (
     <div className="user-cart-page-item-div">
+      <link rel="preload" as="image" href={item.img_url} />
       <img src={item.img_url} alt={item.name} />
       <h4>{item.name}</h4>
       <div className="user-cart-page-item-quantity-div">

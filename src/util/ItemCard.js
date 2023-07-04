@@ -32,6 +32,7 @@ function ItemCard({ item }) {
       onClick={handleItemClick}
       className="item-card-div"
     >
+      <link rel="preload" as="image" href={item.img_url} />
       <img src={item.img_url} alt={item.name} />
       <motion.p variants={windowWidth >= 430 ? pVariants : null}>
         {item.name}

@@ -12,7 +12,6 @@ function ProfilePage() {
   const { id } = useParams();
   const user = useSelector(selectUser).data[0];
   const user_id = Cookies.get("user_id");
-  console.log(user);
 
   useEffect(() => {
     dispatch(fetchUserData(id));

@@ -1,5 +1,5 @@
 .explore-more-div{
-    background-image: url('../../../public/images/explore-more-image-mobile.jpg');
+    background-image: url('../../../public/images/explore-more-image-mobile.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: center;
@@ -30,7 +30,7 @@
 
 @media only screen and (min-width: 770px ){
     .explore-more-div {
-        background-image: url('../../../public/images/explore-more-image-desktop.jpg');
+        background-image: url('../../../public/images/explore-more-image-desktop.webp');
         flex-wrap: nowrap;
         flex-direction: column;
         align-items: flex-start;
