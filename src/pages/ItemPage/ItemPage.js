@@ -16,8 +16,8 @@ function ItemPage() {
 
   const dispatch = useDispatch();
   const { id } = useParams();
-  const status = useSelector(selectProducts).status;
-  const data = useSelector(selectProducts).itemData[0];
+  const status = useSelector(selectProducts)?.status;
+  const data = useSelector(selectProducts)?.itemData[0];
   const price = parseFloat(data?.price.replace("$", ""));
 
   const handleAddToCart = async (e) => {
@@ -38,10 +38,10 @@ function ItemPage() {
         }
       );
       setErrorMessage(false);
-      setSuccessMessage(response.data);
+      setSuccessMessage(response?.data);
     } catch (error) {
       setSuccessMessage(false);
-      setErrorMessage(error.response.data);
+      setErrorMessage(error.response?.data);
     }
   };
 
@@ -77,12 +77,12 @@ function ItemPage() {
         <div className="item-page-container">
           <div className="item-page-div">
             <div className="item-page-header">
-              <h2>{data.name}</h2>
+              <h2>{data?.name}</h2>
             </div>
             <div className="wide-view-container">
               <div className="item-page-image">
-                <link rel="preload" as="image" href={data.img_url} />
-                <img src={data.img_url} alt="Item" />
+                <link rel="preload" as="image" href={data?.img_url} />
+                <img src={data?.img_url} alt="Item" />
               </div>
               <div className="item-page-description">
                 <div className="item-page-description-header">
@@ -119,12 +119,12 @@ function ItemPage() {
               </div>
             </div>
             <div className="item-page-price">
-              <h3>Price: {data.price}</h3>
+              <h3>Price: {data?.price}</h3>
             </div>
           </div>
           <div className="item-page-buy-out">
             <div className="item-page-quantity">
-              <h3>Select Amount - {data.quantity} in stock</h3>
+              <h3>Select Amount - {data?.quantity} in stock</h3>
               <p>
                 quantity:{" "}
                 <input

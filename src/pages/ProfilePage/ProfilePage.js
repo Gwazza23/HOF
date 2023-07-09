@@ -10,7 +10,7 @@ function ProfilePage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const user = useSelector(selectUser).data[0];
+  const user = useSelector(selectUser)?.data[0];
   const user_id = Cookies.get("user_id");
 
   useEffect(() => {

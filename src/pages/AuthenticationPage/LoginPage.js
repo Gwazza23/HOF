@@ -62,7 +62,7 @@ function LoginPage() {
           />
         </div>
         {errorMessage ? <p className="error">{errorMessage}</p> : null}
-        <button className="auth-button" type="submit">
+        <button className="auth-button" type="submit" data-testid="signin-button" >
           Sign In
         </button>
         <p className="auth-option">

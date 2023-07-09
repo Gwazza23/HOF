@@ -11,7 +11,7 @@ function UserCartPage() {
   const [itemUpdate, setItemUpdate] = useState(false);
   const { id } = useParams();
   const dispatch = useDispatch();
-  const data = useSelector(selectCart).cartData;
+  const data = useSelector(selectCart)?.cartData;
 
   const cartTotal = data.reduce(
     (total, item) => total + parseFloat(item.total_price),

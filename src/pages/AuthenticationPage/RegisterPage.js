@@ -31,7 +31,7 @@ function RegisterPage() {
         navigate("/login");
       }, 2000);
     } catch (error) {
-      setErrorMessage(error.response.data);
+      setErrorMessage(error.response?.data);
     }
   };
 
@@ -88,7 +88,7 @@ function RegisterPage() {
           </p>
         ) : null}
         {errorMessage ? <p className="error">{errorMessage}</p> : null}
-        <button className="auth-button" type="submit">
+        <button className="auth-button" type="submit" data-testid="signup-button">
           Sign Up
         </button>
         <p className="auth-option">
