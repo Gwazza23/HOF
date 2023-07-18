@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# House Of Fashion
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## <ins>Description</ins>
 
-## Available Scripts
+This project is an online e-commerce website designed to mimic a fully functional online shopping platform. The goal in creating this project was to create a full stack application ( front-end, back-end, database ) and mesh each component in order to provide users with a complete online shopping experience.
 
-In the project directory, you can run:
+## <ins>Features</ins>
 
-### `npm start`
+### Register Page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Register Page that allows users to create own accounts. intergrated with a backend that hashes passwords and stores data in a supabase database system.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   <p align="center">
+   <img src="./public/readme/registerpage.gif" width="500">
+   </p>
+   <img src="./public/readme/supabaseRegister.png" height="400">
 
-### `npm test`
+If a user inserts invalid inputs, error messages will display.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Login Page
 
-### `npm run build`
+Login Page that allows users to log into their created accounts. intergrated with a express backend that uses supabase and passport to authenticate users.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   <p align="center">
+   <img src="./public/readme/loginpage.gif" height="300">
+   </p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If user insertts invalid inputs, error messages will display.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Profile Page
 
-### `npm run eject`
+Users can view their own profile page, with the option to add contact details if they previously haven't. The new details will be updated in the database.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Item Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User can add items to their cart from the item pages.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* stock levels displayed on the page
+* if a user attempts to add an item with the quantity above the stock level an error message will be displayed.
+* if a user successfully adds a quantity of an item to their cart, the amount of that item will be reduced from the stocks in the database while it is in the users cart.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Cart page
 
-## Learn More
+Users can view their cart to see the items in the basket curently and the cart total is displayed
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* items can be removed from the cart
+* item quantity can be changed from the cart
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**any changes made to item quantities will be directly reflected on the product table of the database**
 
-### Code Splitting
+**cart total amount will when the cart item quantities are changed**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Responsive web design
 
-### Analyzing the Bundle Size
+The website is fully responsive to different types of devices with quality of life features for different devices, e.g on mobile devices large blocks of text can be toggled on or off for better user exeperience.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   <p align='center'>
+   <video src="./public/readme/mobileResponse1.mp4" width="500" controls ></video>
+   <br/><br/>
+   <video src="./public/readme/mobileResponse2.mp4" width="500" controls ></video>
+   </p>
 
-### Making a Progressive Web App
+### Authorization protection
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Sensitive pages like user cart or profile pages are protected by authorization middleware in the backend to ensure that users can only access authorized content.
 
-### Advanced Configuration
+## <ins>Development process</ins>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+I started by drawing a wireframe sketches in order to get a feel for the layout and functionality of the website, once I was happy with the overall design I moved onto the development phase. I divided the development phase into smaller tasks, my methodoloy was to build a backend route and database queries first and then the front-end components that would employ it. At the end of each backend + frontend component cycle I tested the whole unit using Cypress and postman.Once I felt the unit was secure and functional I deployed the code to GitHub/netlify/render.
 
-### Deployment
+## <ins>Challenges</ins>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The main challenge that I came across during the making of this project was to do with cookies. I tried setting a user-id cookie from the backend but I couldn't get it to work, I spent hours trying to find the solution in websites such as stackoverflow and other similar forums, eventually I found that it is not possible to set cookies from a backend that is on a different domain to the front end so I opted to set the cookie on the front-end to circumvent this issue.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Other minor challenges that I encountered were mostly to do with framer-motion but I was easily able to solve the issues after looking through the docs/videos.
